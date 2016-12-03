@@ -2,15 +2,16 @@ function methodRunge
     a = 1;
     b = 5;
     y0 = 1/exp(1);
-    n = 5;
+    n = 10;
     [x, y] = runge(a,b,y0,n);
     
     x1 = 1 : 0.01 : 5;
     y1 = x1.^2 .* exp(-x1);
+    [x2,y2] = ode45(@f,[1, 5],y0);
     plot(x,y);
     hold on;
     plot(x1,y1,'r');
-   
+    plot(x2,y2,'g');
     grid on;
     
     
